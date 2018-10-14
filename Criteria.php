@@ -11,7 +11,7 @@ require_once('./Config.php');
 
 class Criteria
 {
-	private $config;
+	public $config;
 
 	public function __construct()
 	{

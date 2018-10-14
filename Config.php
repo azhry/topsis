@@ -12,6 +12,7 @@ class Config
 	public static $config = [
 			'biaya_sewa' => [
 				'key'		=> 'biaya_sewa',
+				'weight'	=> 5,
 				'label'		=> 'Biaya Sewa',
 				'type'		=> 'range',
 				'values'	=> [
@@ -49,6 +50,7 @@ class Config
 			],
 			'luas_bangunan' => [
 				'key'		=> 'luas_bangunan',
+				'weight'	=> 4,
 				'label'		=> 'Luas Bangunan',
 				'type'		=> 'range',
 				'values'	=> [
@@ -86,6 +88,7 @@ class Config
 			],
 			'akses_menuju_lokasi' => [
 				'key'		=> 'akses_menuju_lokasi',
+				'weight'	=> 5,
 				'label'		=> 'Akses Menuju Lokasi',
 				'type'		=> 'option',
 				'values'	=> [
@@ -113,6 +116,7 @@ class Config
 			],
 			'pusat_keramaian' => [
 				'key'		=> 'pusat_keramaian',
+				'weight'	=> 5,
 				'label'		=> 'Pusat Keramaian',
 				'type'		=> 'option',
 				'values'	=> [
@@ -140,6 +144,7 @@ class Config
 			],
 			'zona_parkir' => [
 				'key'		=> 'zona_parkir',
+				'weight'	=> 5,
 				'label'		=> 'Zona Parkir',
 				'type'		=> 'range',
 				'values'	=> [
@@ -177,6 +182,7 @@ class Config
 			],
 			'jumlah_pesaing_serupa' => [
 				'key'		=> 'jumlah_pesaing_serupa',
+				'weight'	=> 4,
 				'label'		=> 'Jumlah Pesaing Serupa',
 				'type'		=> 'range',
 				'values'	=> [
@@ -214,6 +220,7 @@ class Config
 			],
 			'tingkat_konsumtif_masyarakat' => [
 				'key'		=> 'tingkat_konsumtif_masyarakat',
+				'weight'	=> 5,
 				'label'		=> 'Tingkat Konsumtif Masyarakat',
 				'type'		=> 'option',
 				'values'	=> [
@@ -241,6 +248,7 @@ class Config
 			],
 			'lingkungan_lokasi_ruko' => [
 				'key'		=> 'lingkungan_lokasi_ruko',
+				'weight'	=> 5,
 				'label'		=> 'Lingkungan Lokasi Ruko',
 				'type'		=> 'option',
 				'values'	=> [
