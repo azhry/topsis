@@ -18,6 +18,11 @@ class Criteria
 		$this->config = Config::$config;
 	}
 
+	public function set_config($config)
+	{
+		$this->config = $config;
+	}
+
 	public function fit($data, $exclude_key = [])
 	{
 		$result = [];
