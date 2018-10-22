@@ -7,7 +7,7 @@
 * @version    1.0
 */
 
-require_once('./Criteria.php');
+require_once(__DIR__ . '/Criteria.php');
 
 class Topsis
 {
@@ -17,8 +17,9 @@ class Topsis
 	private $weighted_result;
 	private $distance_result;
 	private $normalizer;
-	private $criteria;
 	private $weights;
+
+	public $criteria;
 
 	public function __construct()
 	{

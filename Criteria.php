@@ -7,7 +7,7 @@
 * @version    1.0
 */
 
-require_once('./Config.php');
+require_once(__DIR__ . '/Config.php');
 
 class Criteria
 {
@@ -21,6 +21,11 @@ class Criteria
 	public function set_config($config)
 	{
 		$this->config = $config;
+	}
+
+	public function get_config()
+	{
+		return $this->config;
 	}
 
 	public function fit($data, $exclude_key = [])
