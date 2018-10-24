@@ -44,7 +44,7 @@ class Config
 						'label'	=> 'Sangat mahal',
 						'min'	=> 187400000,
 						'max'	=> null,
-						'value'	=> 4
+						'value'	=> 1
 					]
 				]
 			],
@@ -125,7 +125,11 @@ class Config
 						'value'	=> 4
 					],
 					[
-						'label'	=> 'Pusat Belanja (Mall / Pasar)',
+						'label'	=> 'Mall',
+						'value'	=> 3
+					],
+					[
+						'label'	=> 'Pasar',
 						'value'	=> 3
 					],
 					[
@@ -133,7 +137,11 @@ class Config
 						'value'	=> 2
 					],
 					[
-						'label'	=> 'Sekolah / Kampus',
+						'label'	=> 'Sekolah',
+						'value'	=> 5
+					],
+					[
+						'label'	=> 'Kampus',
 						'value'	=> 5
 					],
 					[
@@ -257,15 +265,19 @@ class Config
 						'value'	=> 4
 					],
 					[
-						'label'	=> 'Dekat Perkampungan',
+						'label'	=> 'Lingkungan Perkampungan',
 						'value'	=> 1
 					],
 					[
-						'label'	=> 'Dekat Perumahan',
+						'label'	=> 'Lingkungan Perumahan',
 						'value'	=> 3
 					],
 					[
-						'label'	=> 'Jalan Raya',
+						'label'	=> 'Jalan Raya Kota',
+						'value'	=> 5
+					],
+					[
+						'label'	=> 'Jalan Utama',
 						'value'	=> 5
 					],
 					[

@@ -81,11 +81,12 @@ class Criteria
 
 			case 'option':
 				$possible_values = [];
+				$cvalue = json_decode($value);
 				foreach ($this->config[$key]['values'] as $opt)
 				{
-					if (is_array($value))
+					if (is_array($cvalue))
 					{
-						foreach ($value as $v)
+						foreach ($cvalue as $v)
 						{
 							if ($v === $opt['label'])
 							{
@@ -93,11 +94,15 @@ class Criteria
 							}
 						}
 					}
-					elseif (!is_array($value) && $value === $opt['label'])
+					elseif (!is_array($cvalue) && $value === $opt['label'])
 					{
 						return $opt['value'];
 					}
 				}
+
+				$len = count($possible_values);
+				if ($len == 0) return 0;
+				else if ($len == 1) return $possible_values[0];	
 
 				return max($possible_values);
 		}

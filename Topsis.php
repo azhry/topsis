@@ -42,7 +42,6 @@ class Topsis
 		{
 			$this->normalizer[$key] = $this->euclidean_distance(array_column($this->result, $key));
 		}
-
 		return $this->result;
 	}
 
@@ -52,7 +51,7 @@ class Topsis
 			$result = [];
 			foreach ($row as $key => $value)
 			{
-				$result[$key] = $value / $this->normalizer[$key];
+				$result[$key] = $this->normalizer[$key] == 0 ? 0 : $value / $this->normalizer[$key];
 			}
 			return $result;
 		}, $this->result);
@@ -71,7 +70,7 @@ class Topsis
 				$result[$key] = $value * $this->weights[$key];
 			}
 			return $result;
-		}, $this->result);
+		}, $this->normalized_result);
 
 		return $this->weighted_result;
 	}
@@ -79,7 +78,7 @@ class Topsis
 	public function solution_distance()
 	{
 		$solution_matrix = $this->solution_matrix($this->weighted_result);
-		$this->distance_result = array_map(function($row) {
+		$this->distance_result = array_map(function($row) use ($solution_matrix) {
 			$positive_sum = $negative_sum = 0;
 			foreach ($row as $key => $value)
 			{
@@ -133,35 +132,35 @@ class Topsis
 	private function euclidean_distance($vector)
 	{
 		$powered_vect = array_map(function($x) { return $x * $x; }, $vector);
-		$sum = sum($powered_vect);
+		$sum = array_sum($powered_vect);
 		return sqrt($sum);
 	}
 
 }
 
-$data = [
-	[
-		'ruko'							=> 'Jl Mangkunegara',
-		'biaya_sewa'					=> 50000000,
-		'luas_bangunan'					=> 48,
-		'akses_menuju_lokasi'			=> 'Semuanya',
-		'pusat_keramaian'				=> [ 'Pusat Belanja (Mall / Pasar)', 'Sekolah / Kampus' ],
-		'zona_parkir'					=> 7,
-		'jumlah_pesaing_serupa'			=> 7,
-		'tingkat_konsumtif_masyarakat'	=> 'Sangat Tinggi',
-		'lingkungan_lokasi_ruko'		=> 'Dekat Perumahan'
-	],
-	[
-		'ruko'							=> 'Jl Angkatan 66',
-		'biaya_sewa'					=> 50000000,
-		'luas_bangunan'					=> 48,
-		'akses_menuju_lokasi'			=> [ 'Kendaraan Mobil', 'Kendaraan Motor' ],
-		'pusat_keramaian'				=> [ 'Pusat Belanja (Mall / Pasar)', 'Sekolah / Kampus' ],
-		'zona_parkir'					=> 4,
-		'jumlah_pesaing_serupa'			=> 7,
-		'tingkat_konsumtif_masyarakat'	=> 'Sangat Tinggi',
-		'lingkungan_lokasi_ruko'		=> 'Dekat Perumahan'
-	]
-];
+// $data = [
+// 	[
+// 		'ruko'							=> 'Jl Mangkunegara',
+// 		'biaya_sewa'					=> 50000000,
+// 		'luas_bangunan'					=> 48,
+// 		'akses_menuju_lokasi'			=> 'Semuanya',
+// 		'pusat_keramaian'				=> [ 'Pusat Belanja (Mall / Pasar)', 'Sekolah / Kampus' ],
+// 		'zona_parkir'					=> 7,
+// 		'jumlah_pesaing_serupa'			=> 7,
+// 		'tingkat_konsumtif_masyarakat'	=> 'Sangat Tinggi',
+// 		'lingkungan_lokasi_ruko'		=> 'Dekat Perumahan'
+// 	],
+// 	[
+// 		'ruko'							=> 'Jl Angkatan 66',
+// 		'biaya_sewa'					=> 50000000,
+// 		'luas_bangunan'					=> 48,
+// 		'akses_menuju_lokasi'			=> [ 'Kendaraan Mobil', 'Kendaraan Motor' ],
+// 		'pusat_keramaian'				=> [ 'Pusat Belanja (Mall / Pasar)', 'Sekolah / Kampus' ],
+// 		'zona_parkir'					=> 4,
+// 		'jumlah_pesaing_serupa'			=> 7,
+// 		'tingkat_konsumtif_masyarakat'	=> 'Sangat Tinggi',
+// 		'lingkungan_lokasi_ruko'		=> 'Dekat Perumahan'
+// 	]
+// ];
 
-$topsis = new Topsis();
+// $topsis = new Topsis();
