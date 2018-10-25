@@ -113,7 +113,7 @@ class Topsis
 
 	private function preference($x, $y)
 	{
-		return $y / ($x + $y);
+		return ($x + $y) == 0 ?  0 : $y / ($x + $y);
 	}
 
 	private function solution_matrix($matrix)
@@ -122,8 +122,9 @@ class Topsis
 		foreach ($this->weights as $key => $value)
 		{
 			$col = array_column($matrix, $key);
-			$solution['positive'][$key] = max($col);
-			$solution['negative'][$key] = min($col);
+			$len_col = count($col);
+			$solution['positive'][$key] = $len_col > 0 ? max($col) : 0;
+			$solution['negative'][$key] = $len_col > 0 ? min($col) : 0;
 		}
 
 		return $solution;
